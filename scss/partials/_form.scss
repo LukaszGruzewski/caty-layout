@@ -1,0 +1,189 @@
+.form_section {
+  @include sections($color-form-background);
+  display: flex;
+}
+
+.center_form {
+  display: flex;
+  height: 100vh;
+  p {
+    text-align: center;
+    &:first-child {
+      font-size: 18px;
+      color: $color-font;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    &:nth-child(2) {
+      font-size: 15px;
+      color: $color-font-secondary;
+      font-weight: 600;
+      margin-bottom: 46px;
+    }
+  }
+}
+
+.form_box {
+  align-self: center;
+  width: 580px;
+}
+
+.name_surname {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form_box input:not([type="checkbox"]) {
+  height: 49px;
+  margin-bottom: 22px;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.form_box textarea {
+  height: 160px;
+  margin-bottom: 7px;
+  padding-left: 15px;
+  margin-top: 5px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form_box input:not([type="checkbox"]),
+.form_box textarea {
+  width: 100%;
+  border: none;
+  box-shadow: 0 3px 6px rgba(145, 154, 159, .08);
+  outline: none;
+}
+
+.form_box form div {
+  position: relative;
+}
+
+.form_box form .up_effect label {
+  position: absolute;
+  top: 15px;
+  transition: .5s;
+  left: 15px;
+  font-size: 15px;
+  color: $color-font-secondary;
+  pointer-events: none;
+}
+.form_box form .checkbox label {
+  pointer-events: auto;
+}
+
+.form_box input:focus ~ label,
+.form_box textarea:focus ~ label,
+.form_box input:valid ~ label,
+.form_box textarea:valid ~ label {
+  top: 10px;
+  font-size: 11px;
+  color: $color-font-secondary;
+}
+
+.form_box input:focus,
+.form_box textarea:focus {
+  box-shadow: 0 8px 8px rgba(145, 154, 159, .16);
+}
+
+input[type='text'] {
+  min-width: 272px;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+  color: $color-font-headers;
+  font-size: 15px;
+  padding-top: 20px;
+}
+
+.form_checkbox {
+  display: flex;
+
+}
+.agreement {
+  color: $color-font-headers;
+  font-size: 10px;
+  padding-left: 12px;
+  font-weight: 600;
+  width: 527px;
+  line-height: 1.6;
+}
+
+.form_checkbox input {
+  position: absolute;
+  opacity: 0;
+}
+
+.form_checkbox .checked {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,.16);
+}
+
+.form_checkbox .checked:before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: url(../../images/checked.jpg) no-repeat center;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: 0.5s all;
+}
+
+.form_checkbox input:checked + .checked:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.btn_poz {
+  display: flex;
+  justify-content: center;
+}
+.form_box input[type="submit"] {
+  width: 118px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: $color-primary;
+  box-shadow: 0 11px 24px rgba(0, 182, 220, .12);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 25px;
+  padding-left: 0;
+}
+
+
+@media (max-width: 1187px) {
+  .form_section {
+    padding: 0;
+  }
+  .center_form {
+    height: auto;
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .center_form {
+    height: auto;
+  }
+  .form_box {
+    width: 88vw;
+    max-width: none;
+  }
+  .name_surname {
+    flex-direction: column;
+  }
+  input[type='text'] {
+    min-width: 100%;
+  }
+}
